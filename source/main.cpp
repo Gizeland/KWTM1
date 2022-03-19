@@ -4,8 +4,16 @@ int main()
 #include<iostream>
 #include<LaborkaConfig.h>
 
-int main()
+int main(int argc, char* argv[])
 { /*...*/
+#ifdef BUILD_TESTS
+	std::cout << "TESTS \n";
+	if (argc >= 2) {
+		double dg = strtod(argv[1], NULL);
+		double rs = degreemath::cos(dg);
+		std::cout << rs << "\n";}
+#endif
+
 #ifdef USE_TRIGONOMETRY_DEGREE
 	std::cout << "USE_TRIGONOMETRY_DEGREE set as TRUE \n";
 	double sin = degreemath::sin(90);
